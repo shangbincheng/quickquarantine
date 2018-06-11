@@ -1,9 +1,8 @@
 package com.github.quickquarantine;
 
-import java.io.File;
-
-
 public class FactoryBuilder {
+	
+	public static final String SEPARATOR = "/";
 	
     private static String dirName = "quickquarantine";
 	
@@ -12,7 +11,7 @@ public class FactoryBuilder {
 	 * 默认QuickQuarantine配置清单文件路径.
 	 * 比如Linux下,根路径/quickquarantine/quickquarantine.properties 
 	 */
-	private static String path = String.format("%s%s%s", dirName, File.separator, fileName);
+	private static String path = String.format("%s%s%s", dirName, SEPARATOR, fileName);
 	
 	/**
 	 * 重新设置配置文件位置,从根路径起始
@@ -22,7 +21,7 @@ public class FactoryBuilder {
 	public static void setPath(String dirName, String fileName) {
 		FactoryBuilder.dirName = dirName;
 		FactoryBuilder.fileName = fileName;
-		FactoryBuilder.path = String.format("%s%s%s", dirName, File.separator, fileName);
+		FactoryBuilder.path = String.format("%s%s%s", dirName, SEPARATOR, fileName);
 	}
 	
 	public static String getDirName() {

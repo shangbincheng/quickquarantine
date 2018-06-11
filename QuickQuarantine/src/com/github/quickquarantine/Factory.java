@@ -2,7 +2,6 @@ package com.github.quickquarantine;
 
 import static com.github.quickquarantine.utils.SecurityUtils.VERTICAL_LINE;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -124,7 +123,7 @@ public class Factory {
 	        String operation = (String) e.nextElement();  
 	        String fileName = p.getProperty(operation); 
 	        // 根据配置清单文件,获取相关映射文件,映射文件起始于清单文件所在工作目录
-	        String filePath = dirName + File.separator + fileName;
+	        String filePath = String.format("%s%s%s", dirName, FactoryBuilder.SEPARATOR, fileName);
 	        List<Object> list = getProperties(filePath);
 	        Properties config = (Properties) list.get(0);
 	        String realPath = ((URL)list.get(1)).getFile();
